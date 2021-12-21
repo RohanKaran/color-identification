@@ -39,6 +39,7 @@ def get_colors(image, mc):
             rotatelabels=True, wedgeprops={'animated': True, "edgecolor": "black", 'linewidth': "0.05",
                                            'antialiased': True}, textprops={'size': 5, 'color': "black"})
     fig1.patch.set_facecolor(color="None")
+    st.header("\n")
     st.subheader("Colours:")
     st.pyplot(fig1)
 
@@ -79,6 +80,3 @@ if __name__ == "__main__":
         with st.spinner("Analyzing..."):
             get_colors(up_image, max_colors)
             st.success("Done!")
-
-st.caption("Created by - Rohan Karan \n [(source code)](https://github.com/rohankaran/color-identification)")
-st.write("")
