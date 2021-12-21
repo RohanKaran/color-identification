@@ -10,6 +10,7 @@ def RGB2HEX(color):
     return "#{:02x}{:02x}{:02x}".format(int(color[0]), int(color[1]), int(color[2]))
 
 
+@st.cache
 def get_colors(image, mc):
     length = int(600 * float(image.shape[0] / image.shape[1]))
     image = cv2.resize(image, (600, length), interpolation=cv2.INTER_AREA)
