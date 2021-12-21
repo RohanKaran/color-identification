@@ -46,7 +46,17 @@ def get_colors(image, mc):
 
 
 if __name__ == "__main__":
+    menu_items = {
+        'About': '''
+    	 ### Colour Identification in Images
+    	 Made by - Rohan Karan
+    	'''
+    }
+    st.set_page_config(page_title="Colour Identification in Images", page_icon="❤️", menu_items=menu_items)
     st.title("Colour Identification in Images")
+    st.markdown(""" <style>
+    footer {visibility: hidden;}
+    </style> """, unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader("Choose a image file", type=["jpg", "jpeg", "png"])
 
@@ -61,7 +71,7 @@ if __name__ == "__main__":
         st.sidebar.subheader("Maximum colours:")
         if max_unique_colors <= 1:
             max_colors = 1
-            st.sidebar.write("Only one colour!")
+            st.sidebar.warning("Only one colour!")
         else:
             max_colors = st.sidebar.slider(f'Choose between 1-{max_value}', min_value=1, max_value=max_value,
                                            value=min(5, max_unique_colors))
@@ -69,3 +79,6 @@ if __name__ == "__main__":
         with st.spinner("Analyzing..."):
             get_colors(up_image, max_colors)
             st.success("Done!")
+
+st.caption("Created by - Rohan Karan \n [(source code)](https://github.com/rohankaran/color-identification)")
+st.write("")
