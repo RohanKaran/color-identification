@@ -50,7 +50,9 @@ if __name__ == "__main__":
     menu_items = {
         'About': '''
     	 ### Colour Identification in Images
-    	 Made by - Rohan Karan
+    	** Made by - Rohan Karan ** \n
+    	 [![LinkedIn Follow](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/rohankaran001)
+    	 
     	'''
     }
     st.set_page_config(page_title="Colour Identification in Images", page_icon="❤️", menu_items=menu_items)
