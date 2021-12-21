@@ -61,7 +61,7 @@ if __name__ == "__main__":
     footer {visibility: hidden;}
     </style> """, unsafe_allow_html=True)
 
-    uploaded_file = st.file_uploader("Choose a image file", type=["jpg", "jpeg", "png"])
+    uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "jpeg", "png"])
 
     if uploaded_file is not None:
         file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
