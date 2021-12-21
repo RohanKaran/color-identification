@@ -3,8 +3,6 @@ from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 import cv2
 from collections import Counter
-# from skimage.color import rgb2lab, deltaE_cie76
-import os
 import streamlit as st
 
 
@@ -13,7 +11,7 @@ def RGB2HEX(color):
 
 
 def get_colors(image, mc):
-    length = int(600*float(image.shape[0] / image.shape[1]))
+    length = int(600 * float(image.shape[0] / image.shape[1]))
     image = cv2.resize(image, (600, length), interpolation=cv2.INTER_AREA)
     # st.image(image)
     modified_image = image.reshape(image.shape[0] * image.shape[1], 3)
@@ -38,7 +36,8 @@ def get_colors(image, mc):
         return my_autopct
 
     ax1.pie(counts.values(), labels=hex_colors, colors=hex_colors, autopct=make_autopct(),
-            rotatelabels=True, wedgeprops={'animated': True}, textprops={'size': 5, 'color': "black"})
+            rotatelabels=True, wedgeprops={'animated': True, "edgecolor": "black", 'linewidth': "0.05",
+                                           'antialiased': True}, textprops={'size': 5, 'color': "black"})
     fig1.patch.set_facecolor(color="None")
     st.subheader("Colors:")
     st.pyplot(fig1)
@@ -47,7 +46,7 @@ def get_colors(image, mc):
 
 
 if __name__ == "__main__":
-    st.title("Color Identification in Images")
+    st.title("Colour Identification in Images")
 
     uploaded_file = st.file_uploader("Choose a image file", type=["jpg", "jpeg", "png"])
 
@@ -57,8 +56,15 @@ if __name__ == "__main__":
         up_image = cv2.cvtColor(opencv_image, cv2.COLOR_BGR2RGB)
         st.subheader("Uploaded image:")
         st.image(up_image)
-        st.sidebar.subheader("Maximum colors:")
-        max_colors = st.sidebar.slider('Choose between 1-10', min_value=1, max_value=10, value=5)
+        max_unique_colors = len(np.unique(up_image, axis=0, return_counts=True)[0])
+        max_value = min(10, max_unique_colors)
+        st.sidebar.subheader("Maximum colours:")
+        if max_unique_colors <= 1:
+            max_colors = 1
+            st.sidebar.write("Only one colour!")
+        else:
+            max_colors = st.sidebar.slider(f'Choose between 1-{max_value}', min_value=1, max_value=max_value,
+                                           value=min(5, max_unique_colors))
 
         with st.spinner("Analyzing..."):
             get_colors(up_image, max_colors)
