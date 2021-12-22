@@ -49,17 +49,19 @@ def get_colors(image, mc):
 if __name__ == "__main__":
     menu_items = {
         'About': '''
-    	 ### Colour Identification in Images
-    	** Made by - Rohan Karan ** \n
-    	 [![LinkedIn Follow](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/rohankaran001)
-    	 
-    	'''
+        ### Colour Identification in Images
+        ** Made by - Rohan Karan ** \n
+        [![LinkedIn Follow](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)]
+        (https://linkedin.com/in/rohankaran001)
+        '''
     }
     st.set_page_config(page_title="Colour Identification in Images", page_icon="❤️", menu_items=menu_items)
+    st.markdown("""
+        <style>
+        footer {visibility: hidden;}
+        </style>""", unsafe_allow_html=True)
+
     st.title("Colour Identification in Images")
-    st.markdown(""" <style>
-    footer {visibility: hidden;}
-    </style> """, unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "jpeg", "png"])
 
@@ -70,7 +72,7 @@ if __name__ == "__main__":
         st.subheader("Uploaded image:")
         st.image(up_image)
         max_unique_colors = len(np.unique(up_image, axis=0, return_counts=True)[0])
-        max_value = min(10, max_unique_colors)
+        max_value = min(15, max_unique_colors)
         st.sidebar.subheader("Maximum colours:")
         if max_unique_colors <= 1:
             max_colors = 1
