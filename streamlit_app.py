@@ -39,8 +39,7 @@ def get_colors(image, mc):
     st.header("\n")
     st.subheader("Colours:")
     st.pyplot(fig1)
-    st.success("Done!")
-    st.balloons()
+
 
 
 if __name__ == "__main__":
@@ -80,5 +79,7 @@ if __name__ == "__main__":
 
         with st.spinner("Analyzing..."):
             get_colors(up_image, max_colors)
+        st.success("Done!")
+        st.balloons()
 
 
