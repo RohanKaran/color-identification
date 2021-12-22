@@ -39,7 +39,7 @@ def get_colors(image, mc):
                                            'antialiased': True}, textprops={'size': 5, 'color': "black"})
     fig1.patch.set_facecolor(color="None")
     txt = "Identified colours"
-    fig1.text(0.51, 0.06, txt, wrap=True, horizontalalignment='center', fontsize=5.5, color='grey',
+    fig1.text(0.52, 0.06, txt, wrap=True, horizontalalignment='center', fontsize=5.5, color='grey',
               fontfamily='sans-serif', fontweight='ultralight')
     load.empty()
     st.header("\n")
