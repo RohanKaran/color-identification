@@ -21,12 +21,9 @@ def get_colors(image, mc):
     counts = Counter(labels)
 
     center_colors = clf.cluster_centers_
-    # We get ordered colors by iterating through the keys
     ordered_colors = [center_colors[i] for i in counts.keys()]
     hex_colors = [RGB2HEX(ordered_colors[i]) for i in counts.keys()]
-    rgb_colors = [ordered_colors[i] for i in counts.keys()]
 
-    # plt.figure(figsize=(12, 8))
     fig1, ax1 = plt.subplots()
 
     def make_autopct():
