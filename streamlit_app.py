@@ -50,7 +50,9 @@ if __name__ == "__main__":
         (https://linkedin.com/in/rohankaran001)
         '''
     }
-    st.set_page_config(page_title="Colour Identification in Images", page_icon="❤️", menu_items=menu_items)
+    st.set_page_config(page_title="Colour Identification in Images",
+                       page_icon="https://www.dropbox.com/s/h2dcp308pz8w34h/rgb%20%281%29.png?raw=1",
+                       menu_items=menu_items)
     st.markdown("""
         <style>
         footer {visibility: hidden;}
