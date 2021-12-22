@@ -52,10 +52,22 @@ if __name__ == "__main__":
     }
     st.set_page_config(page_title="Colour Identification in Images", page_icon="❤️", menu_items=menu_items)
     st.markdown("""
-        <head><meta
-          name="description"
-          content="CRUD web site created using FastAPI-React-MongoDB"
-        /></head>
+        <html><head><!-- Primary Meta Tags -->
+            <title>Colour Identification in Images</title>
+            <meta name="title" content="Colour Identification in Images">
+            <meta name="description" content="Colour Identification in Images">            
+            <!-- Open Graph / Facebook -->
+            <meta property="og:type" content="website">
+            <meta property="og:url" content="https://share.streamlit.io/rohankaran/color-identification">
+            <meta property="og:title" content="Colour Identification in Images">
+            <meta property="og:description" content="Colour Identification in Images">
+            <meta property="og:image" content="">            
+            <!-- Twitter -->
+            <meta property="twitter:card" content="summary_large_image">
+            <meta property="twitter:url" content="https://share.streamlit.io/rohankaran/color-identification">
+            <meta property="twitter:title" content="Colour Identification in Images">
+            <meta property="twitter:description" content="Colour Identification in Images">
+            <meta property="twitter:image" content=""></head></html>
         <style>
         footer {visibility: hidden;}
         </style>""", unsafe_allow_html=True)
