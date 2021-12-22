@@ -41,7 +41,6 @@ def get_colors(image, mc):
     st.pyplot(fig1)
 
 
-
 if __name__ == "__main__":
     menu_items = {
         'About': '''
@@ -53,6 +52,10 @@ if __name__ == "__main__":
     }
     st.set_page_config(page_title="Colour Identification in Images", page_icon="❤️", menu_items=menu_items)
     st.markdown("""
+        <head><meta
+          name="description"
+          content="CRUD web site created using FastAPI-React-MongoDB"
+        /></head>
         <style>
         footer {visibility: hidden;}
         </style>""", unsafe_allow_html=True)
@@ -81,5 +84,3 @@ if __name__ == "__main__":
             get_colors(up_image, max_colors)
         st.success("Done!")
         st.balloons()
-
-
