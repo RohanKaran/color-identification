@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import cv2
 from collections import Counter
 import streamlit as st
+import time
 
 
 def RGB2HEX(color):
@@ -36,6 +37,9 @@ def get_colors(image, mc):
             rotatelabels=True, wedgeprops={'animated': True, "edgecolor": "black", 'linewidth': "0.05",
                                            'antialiased': True}, textprops={'size': 5, 'color': "black"})
     fig1.patch.set_facecolor(color="None")
+    txt = "Identified colours"
+    fig1.text(0.5, 0.06, txt, wrap=True, horizontalalignment='center', fontsize=5.5, color='grey',
+              fontfamily='sans-serif', fontweight='ultralight')
     st.header("\n")
     st.subheader("Colours:")
     st.pyplot(fig1)
@@ -67,7 +71,7 @@ if __name__ == "__main__":
         opencv_image = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
         up_image = cv2.cvtColor(opencv_image, cv2.COLOR_BGR2RGB)
         st.subheader("Uploaded image:")
-        st.image(up_image)
+        st.image(up_image, caption="Uploaded image")
         max_unique_colors = len(np.unique(up_image, axis=0, return_counts=True)[0])
         max_value = min(15, max_unique_colors)
         st.sidebar.subheader("Maximum colours:")
@@ -79,6 +83,8 @@ if __name__ == "__main__":
                                            value=min(6, max_unique_colors))
 
         with st.spinner("Analyzing..."):
+            start = time.time()
             get_colors(up_image, max_colors)
-        st.success("Done!")
+            end = time.time()
+        st.success("Done! Colours are identified using K-means clustering algorithm in {:.2f} seconds".format(end - start))
         st.balloons()
