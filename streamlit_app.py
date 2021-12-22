@@ -43,7 +43,7 @@ def get_colors(image, mc):
               fontfamily='sans-serif', fontweight='ultralight')
     load.empty()
     st.header("\n")
-    st.subheader("Colours:")
+    st.subheader("Identified colours:")
     st.pyplot(fig1)
 
 
