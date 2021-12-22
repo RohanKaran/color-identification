@@ -83,8 +83,11 @@ if __name__ == "__main__":
                                            value=min(6, max_unique_colors))
 
         with st.spinner("Analyzing..."):
+            loading = st.image("https://www.dropbox.com/s/aejzhvqvtegnp02/Spinner-1s-800px.svg?raw=1")
             start = time.time()
             get_colors(up_image, max_colors)
+            loading.empty()
             end = time.time()
         st.success("Done! Colours are identified using K-means clustering algorithm in {:.2f} seconds".format(end - start))
-        st.balloons()
+        balloon = st.balloons()
+        balloon.empty()
