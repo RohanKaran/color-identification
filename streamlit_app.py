@@ -12,7 +12,7 @@ def RGB2HEX(color):
 
 
 def get_colors(image, mc):
-    loading = st.image("https://www.dropbox.com/s/aejzhvqvtegnp02/Spinner-1s-800px.svg?raw=1")
+    load = st.image("https://www.dropbox.com/s/aejzhvqvtegnp02/Spinner-1s-800px.svg?raw=1")
     length = int(600 * float(image.shape[0] / image.shape[1]))
     image = cv2.resize(image, (600, length), interpolation=cv2.INTER_AREA)
     # st.image(image)
@@ -41,9 +41,9 @@ def get_colors(image, mc):
     txt = "Identified colours"
     fig1.text(0.5, 0.06, txt, wrap=True, horizontalalignment='center', fontsize=5.5, color='grey',
               fontfamily='sans-serif', fontweight='ultralight')
+    load.empty()
     st.header("\n")
     st.subheader("Colours:")
-    loading.empty()
     st.pyplot(fig1)
 
 
