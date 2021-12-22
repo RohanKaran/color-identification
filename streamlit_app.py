@@ -39,11 +39,7 @@ def get_colors(image, mc):
             rotatelabels=True, wedgeprops={'animated': True, "edgecolor": "black", 'linewidth': "0.05",
                                            'antialiased': True}, textprops={'size': 5, 'color': "black"})
     fig1.patch.set_facecolor(color="None")
-    st.header("\n")
-    st.subheader("Colours:")
-    st.pyplot(fig1)
-
-    return rgb_colors
+    return fig1
 
 
 if __name__ == "__main__":
@@ -82,5 +78,11 @@ if __name__ == "__main__":
                                            value=min(6, max_unique_colors))
 
         with st.spinner("Analyzing..."):
-            get_colors(up_image, max_colors)
+            fig = get_colors(up_image, max_colors)
+            st.header("\n")
+            st.subheader("Colours:")
+            st.pyplot(fig)
             st.success("Done!")
+            st.balloons()
+        if st.button("Press me!"):
+            st.balloons()
