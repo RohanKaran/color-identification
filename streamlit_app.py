@@ -84,5 +84,4 @@ if __name__ == "__main__":
             st.pyplot(fig)
             st.success("Done!")
             st.balloons()
-        if st.button("Press me!"):
-            st.balloons()
+
