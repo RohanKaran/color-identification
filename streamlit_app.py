@@ -89,5 +89,4 @@ if __name__ == "__main__":
             get_colors(up_image, max_colors)
             end = time.time()
         st.success("Done! Colours are identified using K-means clustering algorithm in {:.2f} seconds".format(end - start))
-        balloon = st.balloons()
-        balloon.empty()
+        st.balloons()
