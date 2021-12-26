@@ -12,7 +12,6 @@ def RGB2HEX(color):
 
 
 def get_colors(image, mc):
-
     length = int(600 * float(image.shape[0] / image.shape[1]))
     image = cv2.resize(image, (600, length), interpolation=cv2.INTER_AREA)
     # st.image(image)
@@ -31,7 +30,6 @@ def get_colors(image, mc):
     def make_autopct():
         def my_autopct(pct):
             return '{p:.2f}%'.format(p=pct)
-
         return my_autopct
 
     ax1.pie(counts.values(), labels=hex_colors, colors=hex_colors, autopct=make_autopct(),
