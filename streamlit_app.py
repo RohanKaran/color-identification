@@ -12,7 +12,7 @@ def RGB2HEX(color):
 
 
 def get_colors(image, mc):
-    load = st.image("https://www.dropbox.com/s/aejzhvqvtegnp02/Spinner-1s-800px.svg?raw=1")
+
     length = int(600 * float(image.shape[0] / image.shape[1]))
     image = cv2.resize(image, (600, length), interpolation=cv2.INTER_AREA)
     # st.image(image)
@@ -41,10 +41,7 @@ def get_colors(image, mc):
     txt = "Identified colours"
     fig1.text(0.515, 0.06, txt, wrap=True, horizontalalignment='center', fontsize=5.5, color='grey',
               fontfamily='sans-serif', fontweight='ultralight')
-    load.empty()
-    st.header("\n")
-    st.subheader("Identified colours:")
-    st.pyplot(fig1)
+    return fig1
 
 
 if __name__ == "__main__":
@@ -85,8 +82,13 @@ if __name__ == "__main__":
                                            value=min(8, max_unique_colors))
 
         with st.spinner("Analyzing..."):
+            load = st.image("https://www.dropbox.com/s/aejzhvqvtegnp02/Spinner-1s-800px.svg?raw=1")
             start = time.time()
-            get_colors(up_image, max_colors)
+            fig = get_colors(up_image, max_colors)
             end = time.time()
+        load.empty()
+        st.header("\n")
+        st.subheader("Identified colours:")
+        st.pyplot(fig)
         st.success("Done! Colours are identified using K-means clustering algorithm in {:.2f} seconds".format(end - start))
         st.balloons()
