@@ -69,7 +69,7 @@ if __name__ == "__main__":
         up_image = cv2.cvtColor(opencv_image, cv2.COLOR_BGR2RGB)
         st.subheader("Uploaded image:")
         st.image(up_image, caption="Uploaded image")
-        max_unique_colors = len(np.unique(up_image, axis=0, return_counts=True)[0])
+        max_unique_colors = len(np.unique(up_image.reshape(-1, up_image.shape[-1]), axis=0, return_counts=True)[0])
         max_value = min(15, max_unique_colors)
         st.sidebar.subheader("Maximum colours:")
         if max_unique_colors <= 1:
