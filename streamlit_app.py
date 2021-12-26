@@ -77,7 +77,7 @@ if __name__ == "__main__":
             st.sidebar.warning("Only one colour!")
         else:
             max_colors = st.sidebar.slider(f'Choose between 1-{max_value}', min_value=1, max_value=max_value,
-                                           value=min(8, max_unique_colors))
+                                           value=max_value//2 + 1)
 
         with st.spinner("Analyzing..."):
             load = st.image("https://www.dropbox.com/s/aejzhvqvtegnp02/Spinner-1s-800px.svg?raw=1")
