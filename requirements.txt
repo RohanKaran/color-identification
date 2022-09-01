@@ -1,5 +1,5 @@
 numpy~=1.23.2
-matplotlib~=3.5.1
+matplotlib~=3.5.3
 streamlit~=1.12.2
 scikit-learn~=1.1.2
 opencv-python-headless~=4.6.0.66
