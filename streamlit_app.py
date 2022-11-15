@@ -35,7 +35,7 @@ def get_colors(image, mc):
     ax1.pie(counts.values(), labels=hex_colors, colors=hex_colors, autopct=make_autopct(),
             rotatelabels=True, wedgeprops={'animated': True, "edgecolor": "black", 'linewidth': 0.05,
                                            'antialiased': True}, textprops={'size': 5, 'color': "black"})
-    fig1.patch.set_facecolor(color=None)
+    fig1.patch.set_facecolor(color="None")
     txt = "Identified colours"
     fig1.text(0.515, 0.06, txt, wrap=True, horizontalalignment='center', fontsize=5.5, color='grey',
               fontfamily='sans-serif', fontweight='ultralight')
